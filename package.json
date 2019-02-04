@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-netlify-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
+  "name": "marissa-douglass-portfolio-website",
+  "description": "Marissa Douglass's portfolio website using Gatsby and Netlify CMS",
   "version": "1.1.3",
-  "author": "Austin Green",
+  "author": "Marissa Douglass",
   "dependencies": {
     "bulma": "^0.7.0",
     "gatsby": "^2.0.66",
