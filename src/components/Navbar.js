@@ -39,6 +39,11 @@ const Navbar = class extends React.Component {
         {/* Hamburger menu */}
         <div className="navbar-burger burger" data-target="navMenu">
           <span>
+            <Link className="navbar-item" to="/portfolio">
+              Portfolio
+            </Link>
+          </span>
+          <span>
             <Link className="navbar-item" to="/about">
               About
             </Link>
@@ -48,12 +53,14 @@ const Navbar = class extends React.Component {
               Contact
             </Link>
           </span>
-          <span></span>
         </div>
       </div>
       <div id="navMenu" className="navbar-menu">
         <div className="navbar-start"></div>
         <div className="navbar-end">
+          <Link className="navbar-item" to="/portfolio">
+            Portfolio
+          </Link>
           <Link className="navbar-item" to="/about">
             About
           </Link>
