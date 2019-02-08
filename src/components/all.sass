@@ -7,17 +7,24 @@ $md-blue-invert: #fff
 
 $primary: $md-blue
 $primary-invert: $md-blue-invert
-$body-color: #333
+$body-color: #fff
+$dark-gray: #292929
+$light-gray: #ccc
 
 body 
   font-family: 'Noto Sans', sans-serif
+  background-color: $dark-gray
+  min-height: 100vh
+  .navbar
+    background-color: $dark-gray
 
 .navbar .navbar-menu
   box-shadow:none !important
   .navbar-item
     display: inline-flex
+    color: $primary
     &:hover
-      color: $primary
+      color: $light-gray
 
 .content .taglist
   list-style: none
@@ -50,5 +57,12 @@ body
 
 .margin-top-0
   margin-top: 0 !important
+
+body
+  .content h1, .content h2, .content h3, .content h4, section 
+    color: $body-color
+
+a
+  color: $primary
 
 @import "~bulma"
