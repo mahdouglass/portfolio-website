@@ -2,14 +2,19 @@
 
 // Config vars
 // MD logo brand color: #6ca9c1
+ // Dark blue gray #383F41
+// Light blue #AFC3CB / #A8E6FF
+// Dark blue #366374
+// Brown #74512A
+// Light Brown #C1996C
 $md-blue: #6ca9c1
-$md-blue-invert: #fff
-
+$md-dark-blue: #383F41
+$md-light-blue: #AFC3CB
 $primary: $md-blue
-$primary-invert: $md-blue-invert
+$hover: $md-light-blue
 $body-color: #fff
 $dark-gray: #292929
-$light-gray: #ccc
+$light-gray: #cccccc
 
 body 
   font-family: 'Noto Sans', sans-serif
@@ -24,7 +29,7 @@ body
     display: inline-flex
     color: $primary
     &:hover
-      color: $light-gray
+      color: $hover
 
 .content .taglist
   list-style: none
@@ -62,17 +67,23 @@ body
   .content h1, .content h2, .content h3, .content h4, section 
     color: $body-color
 
-a
+body a
   color: $primary
+  &:hover
+    color: $hover
 
 a.button
   background-color: $primary
   color: $body-color
   border: none
   &:hover
-    background-color: $light-gray
+    background-color: $hover
+    color: $body-color
 
 .button.is-small
   border-raidus: 8px
+
+h2
+  color: $primary
 
 @import "~bulma"
