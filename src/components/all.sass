@@ -23,13 +23,15 @@ body
   .navbar
     background-color: $dark-gray
 
-.navbar .navbar-menu
-  box-shadow:none !important
-  .navbar-item
-    display: inline-flex
-    color: $primary
-    &:hover
-      color: $hover
+.navbar 
+  .navbar-menu
+    box-shadow:none !important
+    background-color: $md-dark-blue
+    .navbar-item
+      display: inline-flex
+      color: $primary
+      &:hover
+        color: $hover
 
 .content .taglist
   list-style: none
@@ -84,6 +86,9 @@ a.button
   border-raidus: 8px
 
 h2
+  color: $primary
+
+div.navbar-burger
   color: $primary
 
 @import "~bulma"
