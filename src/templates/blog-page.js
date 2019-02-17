@@ -1,62 +1,78 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
 
-export const BlogPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content
+export default class BlogPage extends React.Component {
+  render() {
+    const { data } = this.props
+    const { edges: posts } = data.allMarkdownRemark
 
-  return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
+    return (
+      <Layout>
+        <section className="section">
+          <div className="container">
+            <div className="content">
+              <h1 className="has-text-weight-bold is-size-2">Blog</h1>
+              <h2>Recently Added</h2>
             </div>
+            {posts
+              .map(({ node: post }) => (
+                <div
+                  className="content"
+                  style={{ border: '1px solid #fff', padding: '2em 4em' }}
+                  key={post.id}
+                >
+                  <h2>
+                    <Link to={post.fields.slug}>
+                      {post.frontmatter.title}
+                    </Link>
+                  </h2>
+                  <h4>{post.frontmatter.date}</h4>
+                  <p>
+                    {post.excerpt}
+                    <br />
+                    <br />
+                    <Link className="button is-small" to={post.fields.slug}>
+                      Keep Reading →
+                    </Link>
+                  </p>
+                </div>
+              ))}
           </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-BlogPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-}
-
-const BlogPage = ({ data }) => {
-  const { markdownRemark: post } = data
-
-  return (
-    <Layout>
-      <BlogPageTemplate
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
-      />
-    </Layout>
-  )
+        </section>
+      </Layout>
+    )
+  }
 }
 
 BlogPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }),
 }
 
-export default BlogPage
-
-export const BlogPageQuery = graphql`
-  query BlogPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      html
-      frontmatter {
-        title
+export const pageQuery = graphql`
+  query BlogPageQuery {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] },
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
+    ) {
+      edges {
+        node {
+          excerpt(pruneLength: 400)
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            templateKey
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
       }
     }
   }
