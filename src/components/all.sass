@@ -15,7 +15,11 @@ $hover: $md-light-blue
 $body-color: #fff
 $dark-gray: #292929
 $light-gray: #cccccc
+$brown: #74512A
+$light-brown: #C1996C
 $bg-color: $dark-gray
+$primary-button: $brown
+$primary-button-hover: $light-brown
 
 body 
   font-family: 'Noto Sans', sans-serif
@@ -77,12 +81,12 @@ body a
   &:hover
     color: $hover
 
-a.button
-  background-color: $primary
+a.button, button, button.button, button.button.is-link
+  background-color: $primary-button
   color: $body-color
   border: none
   &:hover
-    background-color: $hover
+    background-color: $primary-button-hover
     color: $body-color
 
 .button.is-small
