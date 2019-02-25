@@ -11,7 +11,7 @@ export default class IndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-centered">Web developer based out of Springfield, OH.</h1>
+              <h1 className="has-text-centered short-bio">Web developer based out of Springfield, OH.</h1>
             </div>
           </div>
         </section>
