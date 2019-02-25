@@ -14,7 +14,6 @@ export default class BlogPage extends React.Component {
           <div className="container">
             <div className="content">
               <h1>Blog</h1>
-              <h2>Recently Added</h2>
             </div>
             {posts
               .map(({ node: post }) => (
