@@ -13,7 +13,7 @@ export default class BlogPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Blog</h1>
+              <h1>Blog</h1>
               <h2>Recently Added</h2>
             </div>
             {posts
